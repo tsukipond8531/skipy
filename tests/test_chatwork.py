@@ -1,9 +1,7 @@
 import json
-import os
 from unittest.mock import patch
 
 import pytest
-from dotenv import load_dotenv
 
 from skipy.chatwork_wrapper import Chatwork
 
@@ -11,8 +9,6 @@ from skipy.chatwork_wrapper import Chatwork
 class TestChatwork:
     @pytest.fixture(scope="class")
     def client(self):
-        load_dotenv()
-        api_key = os.environ["CHATWORK_API_KEY"]
         api_key = "dummy_api_key"
         client = Chatwork(api_key=api_key)
         yield client
