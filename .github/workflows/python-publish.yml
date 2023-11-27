@@ -1,0 +1,30 @@
+name: Upload Python Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python -m pip install poetry
+
+      - name: Build and publish
+        env:
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          poetry self add poetry-version-plugin
+          poetry config pypi-token.pypi $PYPI_TOKEN
+          poetry build
+          #poetry publish -u $POETRY_USERNAME -p $POETRY_PASSWORD
+          poetry publish
