@@ -13,6 +13,7 @@ class TestChatwork:
     def client(self):
         load_dotenv()
         api_key = os.environ["CHATWORK_API_KEY"]
+        api_key = "dummy_api_key"
         client = Chatwork(api_key=api_key)
         yield client
 
