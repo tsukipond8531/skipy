@@ -1,8 +1,11 @@
 .PHONY: all setup check-update lint build test clean
 
-all: clean setup
+all: clean install
 
-setup:
+install:
+	pyenv install -s 3.11.6
+	pyenv local 3.11.6
+	poetry env use 3.11.6
 	poetry config --local virtualenvs.in-project true
 	poetry install
 	poetry run pre-commit install
