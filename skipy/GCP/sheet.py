@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import googleapiclient.discovery
 from google.oauth2.service_account import Credentials
 
