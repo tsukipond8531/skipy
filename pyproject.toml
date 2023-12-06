@@ -12,6 +12,7 @@ requests = "^2.31.0"
 selenium = "^4.15.2"
 boto3 = "^1.29.6"
 google-api-python-client = "^2.108.0"
+python-magic = "^0.4.27"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"

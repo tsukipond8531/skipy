@@ -7,7 +7,7 @@ class Slack:
     def __init__(self, web_hook_url):
         self.web_hook_url = web_hook_url
 
-    def post(self, msg, username="AWS-Lambda-Notification-Bot"):
+    def post(self, msg, username="Notification-Bot"):
         requests.post(
             self.web_hook_url,
             data=json.dumps(

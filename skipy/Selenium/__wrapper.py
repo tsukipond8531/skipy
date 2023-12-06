@@ -15,10 +15,9 @@ def setup_driver(is_lambda=False):
     options.add_argument("--no-zygote")
     if is_lambda:
         dl_path = "/tmp/downloads"
-        os.makedirs(dl_path, exist_ok=True)
     else:
         dl_path = "./downloads"
-        os.makedirs(dl_path, exist_ok=True)
+    os.makedirs(dl_path, exist_ok=True)
     options.add_experimental_option(
         "prefs",
         {"download.default_directory": dl_path, "download.prompt_for_download": False},
