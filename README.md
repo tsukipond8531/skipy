@@ -5,7 +5,7 @@
 - libmagic
 
 ```bash
-sudo apt-get install libmagic
+sudo apt-get install libmagic-dev
 ```
 
 ```bash
