@@ -3,9 +3,9 @@
 all: clean install
 
 install:
-	pyenv install -s 3.11.6
-	pyenv local 3.11.6
-	poetry env use 3.11.6
+	pyenv install -s 3.11.7
+	pyenv local 3.11.7
+	poetry env use 3.11.7
 	poetry config --local virtualenvs.in-project true
 	poetry install
 	poetry run pre-commit install
@@ -13,6 +13,8 @@ install:
 check-update:
 	poetry show --outdated
 	poetry update --dry-run
+
+
 
 build:
 	poetry build
