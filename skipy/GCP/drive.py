@@ -77,7 +77,7 @@ class DriveService:
             raise e
         return list_
 
-    async def get_child_items(self, parent_folder_id: str, share_drive_id: str) -> list:
+    def get_child_items(self, parent_folder_id: str, share_drive_id: str) -> list:
         try:
             list_ = []
             query = f'"{parent_folder_id}" in parents and trashed=false'
