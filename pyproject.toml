@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "skipy"
-version = "0.1.0"
+version = "0.1.1"
 description = "Skip-tac python modules"
 authors = ["syamaguc <programmer2844@gmail.com>"]
 license = "MIT"
