@@ -3,9 +3,10 @@ import os
 from selenium import webdriver
 
 
-def setup_driver(is_lambda=False):
+def setup_driver(is_lambda=True, is_headless=True):
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
+    if is_headless:
+        options.add_argument("--headless")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-gpu")
     options.add_argument("--window-size=1920x1080")
