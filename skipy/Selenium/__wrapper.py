@@ -25,11 +25,11 @@ def setup_driver(is_lambda=True, is_headless=True):
         {"download.default_directory": dl_path, "download.prompt_for_download": False},
     )
     if is_lambda:
+        options.binary_location = "/opt/chrome/chrome"
         chrome = webdriver.Chrome(
             service=Service("/opt/chromedriver"),
             options=options,
         )
-        options.binary_location = "/opt/chrome/chrome"
     else:
         chrome = webdriver.Chrome(options=options)
 
