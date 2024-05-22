@@ -1,5 +1,6 @@
 import os
 
+from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
 
 
@@ -23,6 +24,13 @@ def setup_driver(is_lambda=True, is_headless=True):
         "prefs",
         {"download.default_directory": dl_path, "download.prompt_for_download": False},
     )
-    chrome = webdriver.Chrome(options=options)
+    if is_lambda:
+        chrome = webdriver.Chrome(
+            service=Service("/opt/chromedriver-linux64"),
+            options=options,
+        )
+    else:
+        chrome = webdriver.Chrome(options=options)
+
     chrome.implicitly_wait(15)
     return chrome
